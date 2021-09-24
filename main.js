@@ -1,7 +1,6 @@
 const {app, BrowserWindow} = require('electron');
 
 
-
 //define method to create main window
 function createMainWindow(){
     console.log(process.versions.node);
@@ -15,7 +14,7 @@ function createMainWindow(){
     })
 
     win.loadFile('index.html');
-    win.webContents.openDevTools();
+    //win.webContents.openDevTools();
 }
 //create main window upon starting the app
 app.whenReady().then(createMainWindow);
