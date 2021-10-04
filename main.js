@@ -1,5 +1,21 @@
 const {app, BrowserWindow} = require('electron');
 
+const ipcMain = require('electron').ipcMain;
+
+// in main process, outside of app.on:
+ipcMain.on('load-page', (event, arg) => {
+    
+    const win = new BrowserWindow({
+        width: 800,
+        height: 600,
+        webPreferences: {
+            nodeIntegration: true,
+            contextIsolation: false
+        }
+    });
+    win.loadFile(arg);
+});
+
 
 //define method to create main window
 function createMainWindow(){
@@ -11,7 +27,7 @@ function createMainWindow(){
             nodeIntegration: true,
             contextIsolation: false
         }
-    })
+    });
 
     win.loadFile('index.html');
     //win.webContents.openDevTools();
