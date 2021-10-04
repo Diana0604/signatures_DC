@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>Signature Generator</title>
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
 </head>
 <body>
@@ -12,10 +12,20 @@
         <input type="text" name="phone_number" placeholder="Telephone Number"></input>
         <input type="text" name="email" placeholder="Email"></input>
         <input id="button_html" name="html" class="submit" type="submit" value="Get HTML">
-        <input id="button_rendered" name="rendered" class="submit" type="submit" value="Get Rendered Signature">
+        <input id="button_outlook" name="outlook" class="submit" type="submit" value="Get Outlook Signature">
+        <input id="button_gmail" name="gmail" class="submit" type="submit" value="Get Gmail Signature">
     </form>
     <div id="display">
 
+    </div>
+
+    <div id="tutorials">
+        <h1>Tutorials</h1>
+        <ul>
+            <li><a href="localhost">Ionos Web</a></li>
+            <li><a href="localhost">Outlook</a></li>
+            <li><a href="localhost">Mac Mail</a></li>
+        </ul>
     </div>
     <script>
         require('./src/form.js')

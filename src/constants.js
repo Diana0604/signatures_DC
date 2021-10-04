@@ -1,6 +1,8 @@
 //TYPE CONSTNATS
 const HTML = 0;
-const RENDERED = 1;
+const OUTLOOK = 1;
+const GMAIL = 2;
 
 module.exports.HTML = HTML;
-module.exports.RENDERED = RENDERED;
+module.exports.OUTLOOK = OUTLOOK;
+module.exports.GMAIL = GMAIL;
