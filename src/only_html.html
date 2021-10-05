@@ -1,4 +1,12 @@
-<pre>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Signature Generator</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+</head>
+<body>
+<pre id="full-signature">
     &lt;p style="font-family: arial black; font-size: 18px; color: #00a29e; line-height: 5px;"&gt;FULL_NAME&lt;/p&gt;
     &lt;p style="font-family: arial; color: #00a29e; font-size: 16px; line-height: 5px;"&gt;COMPANY_ROLE&lt;/p&gt;
     &lt;p style="font-family: arial; line-height: 5px; color: #00a29e; font-size: 16px;"&gt;PHONE_NUMBER&lt;/p&gt;
@@ -11,3 +19,8 @@
     &lt;p style="font-family: arial; font-size: 10px;"&gt;Charity Number: 1176855&lt;/p&gt;
     &lt;p style="font-family: arial black; font-size: 12px; line-height: 35px;"&gt;&lt;a href="http://www.extraordinarybodies.org.uk"&gt;&lt;img style="float: left; padding: 0px 10px 0px 0px;" src="https://www.extraordinarybodies.org.uk/wp-content/uploads/2017/04/EB-Logo-2017-e1496138589336.jpg" alt="Extraordinary Bodies logo: black rounded font and soft red circle on the left." width="130px" /&gt;&lt;/a&gt; We run Extraordinary Bodies, the UK's leading integrated circus company, in collaboration with Cirque Bijou.&lt;/p&gt;
 </pre>
+<script>
+    require('./replace-data.js')
+</script>
+</body>
+</html>

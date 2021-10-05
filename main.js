@@ -2,6 +2,8 @@ const {app, BrowserWindow} = require('electron');
 
 const ipcMain = require('electron').ipcMain;
 
+let data;
+
 // in main process, outside of app.on:
 ipcMain.on('load-page', (event, arg) => {
     
@@ -13,7 +15,12 @@ ipcMain.on('load-page', (event, arg) => {
             contextIsolation: false
         }
     });
-    win.loadFile(arg);
+    win.loadFile(arg.page);
+    data = arg.data;
+});
+
+ipcMain.on('display-data', (event) => {
+    event.reply('data', data);
 });
 
 
