@@ -4,7 +4,9 @@ const fs = require("fs");
 const { MongoClient } = require("mongodb");
 
 const client = new MongoClient(
-  "mongodb+srv://itSupportDC:3LZhQG2MyGhYPP0dOaFp@signatures-db.lzqif.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+  "mongodb+srv://itSupportDC:" +
+    process.env.MONGO_PWD +
+    "@signatures-db.lzqif.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 );
 
 client.connect((err) => {
