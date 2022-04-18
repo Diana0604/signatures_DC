@@ -1,6 +1,16 @@
 const constants = require("./constants");
 const fs = require("fs");
 
+const { MongoClient } = require("mongodb");
+
+const client = new MongoClient(
+  "mongodb+srv://itSupportDC:3LZhQG2MyGhYPP0dOaFp@signatures-db.lzqif.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+);
+
+client.connect((err) => {
+  console.log(err);
+});
+
 // In renderer process (web page).
 const ipc = require("electron").ipcRenderer;
 var select = document.getElementById("company");
