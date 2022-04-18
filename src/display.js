@@ -1,6 +1,7 @@
 const constants = require("./constants");
 const fs = require("fs");
 
+//connect to mongodb where database is stored
 const { MongoClient } = require("mongodb");
 
 const client = new MongoClient(
