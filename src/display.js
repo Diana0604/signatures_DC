@@ -1,22 +1,12 @@
 const constants = require("./constants");
 const fs = require("fs");
-
-//connect to mongodb where database is stored
-const { MongoClient } = require("mongodb");
-
-const client = new MongoClient(
-  "mongodb+srv://itSupportDC:" +
-    process.env.MONGO_PWD +
-    "@signatures-db.lzqif.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
-);
-
-client.connect((err) => {
-  console.log(err);
-});
+const database = require('./database.js');
 
 // In renderer process (web page).
 const ipc = require("electron").ipcRenderer;
 var select = document.getElementById("company");
+
+//database.populate();
 
 function display(display_type, elements) {
   if (select.value == "DC") {
