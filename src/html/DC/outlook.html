@@ -47,7 +47,19 @@
     </a> We run Extraordinary Bodies, the UK's leading integrated circus company, in collaboration with Cirque Bijou.</p>
 <p style="font-family: arial black; font-size: 12px; line-height: 35px; padding:0px;margin:0px;margin-auto:0px;mso-line-height-rule: exactly;line-height:110%; color:#312E5D">Who is not in the room and should be? #InclusiveCultures A collaboration between Sarah Pickthall, Clore Leadership and Diverse City.</p>
 <script>
-    require('./src/replace-data.js')
+    const { ipcRenderer } = require("electron");
+
+ipcRenderer.on("data", (event, arg) => {
+  console.log(arg); // prints "pong"
+  let html = document.getElementById("full-signature");
+  html.innerHTML = html.innerHTML
+    .replaceAll("FULL_NAME", arg.name)
+    .replaceAll("COMPANY_ROLE", arg.role)
+    .replaceAll("PHONE_NUMBER", arg.phone)
+    .replaceAll("EMAIL", arg.email);
+});
+
+ipcRenderer.send("display-data");
 </script>
 </body>
 </html>
