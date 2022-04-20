@@ -18,6 +18,23 @@ ipcMain.on("load-page", (event, arg) => {
   data = arg.data;
 });
 
+ipcMain.on("load-page-content", (event, arg) => {
+  const win = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+    },
+  });
+  console.log(arg.content);
+  const content =
+    "data:text/html;charset=utf-8," +
+    encodeURIComponent(arg.content.replace("\n", ""));
+  win.loadURL(content);
+  data = arg.data;
+});
+
 ipcMain.on("display-data", (event) => {
   event.reply("data", data);
 });
