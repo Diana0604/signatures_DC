@@ -3,9 +3,7 @@ const { MongoClient } = require("mongodb");
 const fs = require("fs");
 
 const client = new MongoClient(
-  "mongodb+srv://itSupportDC:" +
-    process.env.MONGO_PWD +
-    "@signatures-db.lzqif.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+  "mongodb+srv://itSupportDC:onlqdfjipoAEoiRWE@signatures-db.lzqif.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 );
 
 async function addToDB(dbObject, collectionName, docs) {
