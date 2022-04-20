@@ -20,7 +20,19 @@
     &lt;p style="font-family: arial black; font-size: 12px; line-height: 35px; color: #312E5D"&gt;Who is not in the room and should be? #InclusiveCultures A collaboration between Sarah Pickthall, Clore Leadership and Diverse City.&lt;/&gt;
 </pre>
 <script>
-    require('./src/replace-data.js')
+    const { ipcRenderer } = require("electron");
+
+    ipcRenderer.on("data", (event, arg) => {
+    console.log(arg); // prints "pong"
+    let html = document.getElementById("full-signature");
+    html.innerHTML = html.innerHTML
+        .replaceAll("FULL_NAME", arg.name)
+        .replaceAll("COMPANY_ROLE", arg.role)
+        .replaceAll("PHONE_NUMBER", arg.phone)
+        .replaceAll("EMAIL", arg.email);
+    });
+
+    ipcRenderer.send("display-data");
 </script>
 </body>
 </html>

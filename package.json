@@ -4,12 +4,13 @@
   "description": "",
   "main": "main.js",
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "electron": "^14.0.1",
     "electron-builder": "^22.11.7"
   },
   "scripts": {
     "start": "electron .",
-    "pack": "electron-builder --dir",
+    "pack": "cross-env MONGO_PWD=onlqdfjipoAEoiRWE electron-builder --dir",
     "dist-win": "electron-builder --win",
     "dist-mac": "electron-builder --mac",
     "dist": "electron-builder",
