@@ -15,22 +15,37 @@ async function addToDB(dbObject, collectionName, docs) {
   console.log(`${result.insertedCount} documents were inserted`);
 }
 
+async function deleteCollectionIfExists(dbObject, collectionName) {
+  if (dbObject.collection(collectionName)) {
+    await dbObject.dropCollection(collectionName);
+  }
+}
+
 async function populate() {
   try {
     await client.connect();
-    console.log('connected');
+    console.log("connected");
     const signaturesDB = client.db("Signatures-DB");
-    const htmlCollectionName = "html";
-    await signaturesDB.createCollection(htmlCollectionName);
+
     //1. base html
+
+    const htmlCollectionName = "html";
+    await deleteCollectionIfExists(signaturesDB, htmlCollectionName);
+    await signaturesDB.createCollection(htmlCollectionName);
     const baseHtmlDocs = [
       {
         title: "DC",
-        content: fs.readFileSync("C:\\Users\\diana\\OneDrive\\Documents\\webdev\\signatures\\src\\html\\DC\\signature.html", "utf8"),
+        content: fs.readFileSync(
+          "C:\\Users\\diana\\OneDrive\\Documents\\webdev\\signatures\\src\\html\\DC\\signature.html",
+          "utf8"
+        ),
       },
       {
         title: "EB",
-        content: fs.readFileSync("C:\\Users\\diana\\OneDrive\\Documents\\webdev\\signatures\\src\\html\\EB\\signature.html", "utf8"),
+        content: fs.readFileSync(
+          "C:\\Users\\diana\\OneDrive\\Documents\\webdev\\signatures\\src\\html\\EB\\signature.html",
+          "utf8"
+        ),
       },
     ];
 
@@ -38,30 +53,49 @@ async function populate() {
 
     //2. outlook render
     const outlookCollectionName = "outlook";
+
+    await deleteCollectionIfExists(signaturesDB, outlookCollectionName);
+
     await signaturesDB.createCollection(outlookCollectionName);
     const outlookRenderDocs = [
       {
         title: "DC",
-        content: fs.readFileSync("C:\\Users\\diana\\OneDrive\\Documents\\webdev\\signatures\\src\\html\\DC\\outlook.html", "utf8"),
+        content: fs.readFileSync(
+          "C:\\Users\\diana\\OneDrive\\Documents\\webdev\\signatures\\src\\html\\DC\\outlook.html",
+          "utf8"
+        ),
       },
       {
         title: "EB",
-        content: fs.readFileSync("C:\\Users\\diana\\OneDrive\\Documents\\webdev\\signatures\\src\\html\\EB\\outlook.html", "utf8"),
+        content: fs.readFileSync(
+          "C:\\Users\\diana\\OneDrive\\Documents\\webdev\\signatures\\src\\html\\EB\\outlook.html",
+          "utf8"
+        ),
       },
     ];
     await addToDB(signaturesDB, outlookCollectionName, outlookRenderDocs);
 
     //3. display html
     const displayHtmlCollectionName = "displayHtml";
+
+    await deleteCollectionIfExists(signaturesDB, displayHtmlCollectionName);
+
     await signaturesDB.createCollection(displayHtmlCollectionName);
+
     const displayHtmlDocs = [
       {
         title: "DC",
-        content: fs.readFileSync("C:\\Users\\diana\\OneDrive\\Documents\\webdev\\signatures\\src\\html\\DC\\only_html.html", "utf8"),
+        content: fs.readFileSync(
+          "C:\\Users\\diana\\OneDrive\\Documents\\webdev\\signatures\\src\\html\\DC\\only_html.html",
+          "utf8"
+        ),
       },
       {
         title: "EB",
-        content: fs.readFileSync("C:\\Users\\diana\\OneDrive\\Documents\\webdev\\signatures\\src\\html\\EB\\only_html.html", "utf8"),
+        content: fs.readFileSync(
+          "C:\\Users\\diana\\OneDrive\\Documents\\webdev\\signatures\\src\\html\\EB\\only_html.html",
+          "utf8"
+        ),
       },
     ];
     await addToDB(signaturesDB, displayHtmlCollectionName, displayHtmlDocs);
