@@ -104,9 +104,27 @@ async function populate() {
     console.log(error);
   } finally {
     await client.close();
-    console.log('client closed');
+    console.log("client closed");
   }
-  
+}
+
+async function getFromDatabase(renderType, company) {
+  try {
+    await client.connect();
+    const signaturesDB = client.db("Signatures-DB");
+    const collection = signaturesDB.collection(renderType);
+    const query = { title: company };
+    const jsonObject = await collection.findOne(query);
+
+    return jsonObject.content;
+  } catch (error) {
+    console.log("error");
+    console.log(error);
+  } finally {
+    console.log("reached finally");
+    await client.close();
+  }
 }
 
 module.exports.populate = populate;
+module.exports.getFromDatabase = getFromDatabase;
