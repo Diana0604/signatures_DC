@@ -51,9 +51,12 @@ const FIXED_PART = (<>
     </a>
   </p>
         
-  <p style={{color: "#312e5d", fontSize: 14, fontFamily:"arial black"}}>
-    Now on tour: <i>Waldo's Circus of Magic and Terror</i>. <a style={{color: "#312e5d"}}href="https://www.extraordinarybodies.org.uk/our-work/waldos-circus-of-magic-terror/">Click here</a> to find out more.
+  <p style={{color: "#094fd1", fontSize: 14}}>
+    Now on tour: <i>Waldo's Circus of Magic and Terror</i>. <a style={{color: "#094fd1"}}href="https://www.extraordinarybodies.org.uk/our-work/waldos-circus-of-magic-terror/">Click here</a> to find out more.
   </p>
+  <a href="https://www.extraordinarybodies.org.uk/our-work/waldos-circus-of-magic-terror/">
+    <img alt="Two performers on stage. The performer on the left is wearing a brown vest and white T-shirt underneath. They look towards the performer on the right, that is mid-jump, wearing a white dress and looking hopefull towards infinity. Behind them we can see rays of sun coming from the top and stars on a black background." src="https://diversecity.org.uk/wp-content/uploads/2023/04/eb_banner_700px-e1681819640702.png" /></a>
+
   <p style={{fontFamily: "arial", fontSize: "10px"}}>Charity Number: 1176855</p>
 
   </>
