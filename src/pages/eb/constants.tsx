@@ -30,12 +30,12 @@ const FIXED_PART = (<>
 export const SIGNATURE = (state: IPersonInformation) => {
   return (<><div>
     <div style={{ fontSize: 13 }}>
-    {state ? state.fullName : ''}
-    <br />
-    {state ? state.role : ''}
+      {state ? state.fullName : ''}
+      <br />
+      {state ? state.role : ''}
     </div>
-    <br/>
-    <div style={{fontSize: 10}}>
+    <br />
+    <div style={{ fontSize: 10 }}>
       {FIXED_PART}
     </div>
   </div></>)
